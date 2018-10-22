@@ -9,4 +9,4 @@ Deverá ser criada uma base de dados com o nome `linkya`. e executar o ficheiro 
 Caso opte por um nome diferente e/ou caso as credenciais de autenticação À base de dados seja diferente de `username: root; password: `, então terá de alterar a configuração da base de dados em `/common/config/main-local.php`.
 
 Database Model:
-[[https://raw.githubusercontent.com/flaviovilarinho/todoslist/master/dbmodel.png]]
+[[https://raw.githubusercontent.com/flaviovilarinho/todoslist/master/dbmodel.png|alt=DBModel]]

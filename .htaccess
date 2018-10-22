@@ -1,0 +1,24 @@
+Options +FollowSymlinks
+RewriteEngine On
+
+# deal with api first
+RewriteCond %{REQUEST_URI} ^/todoslist/(api)
+RewriteRule ^api/assets/(.*)$ api/web/assets/$1 [L]
+RewriteRule ^api/css/(.*)$ api/web/css/$1 [L]
+RewriteRule ^api/js/(.*)$ api/web/js/$1 [L]
+
+RewriteCond %{REQUEST_URI} !^/todoslist/api/web/(assets|css|js)/
+RewriteCond %{REQUEST_URI} ^/todoslist/(api)
+RewriteRule ^.*$ api/web/index.php [L]
+
+
+RewriteCond %{REQUEST_URI} ^/todoslist/(assets|css|js)
+RewriteRule ^assets/(.*)$ app/web/assets/$1 [L]
+RewriteRule ^css/(.*)$ app/web/css/$1 [L]
+RewriteRule ^js/(.*)$ app/web/js/$1 [L]
+
+RewriteCond %{REQUEST_URI} !^/todoslist/(app|api)/web/(assets|css|js)/
+RewriteCond %{REQUEST_URI} !index.php
+RewriteCond %{REQUEST_FILENAME} !-f [OR]
+RewriteCond %{REQUEST_FILENAME} !-d
+RewriteRule ^.*$ app/web/index.php
